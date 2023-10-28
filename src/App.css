@@ -36,3 +36,72 @@
     transform: rotate(360deg);
   }
 }
+
+.body {
+  background-color: #ececeb;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  color: black;
+}
+
+.coin-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.coin {
+  width: 100px;
+  height: 100px;
+  background-color: #ffd700; /* Gold color for coins */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Dark text on coins */
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.deposit {
+  transform: scale(1.2); /* Grow the coin when depositing */
+  background-color: #a1f390; /* Green color when depositing */
+}
+
+.withdraw {
+  transform: scale(0.8); /* Shrink the coin when withdrawing */
+  background-color: #f18d92; /* Red color when withdrawing */
+}
+
+.coin-container {
+  position: relative;
+  top: 50%; /* Adjust the top position to center the coin vertically */
+  left: 50%; /* Adjust the left position to center the coin horizontally */
+  transform: translate(-50%, -50%);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  width: 500px; /* Adjust the size as needed */
+  height: 500px; /* Adjust the size as needed */
+}
+
+button {
+  background-color: palevioletred; /* pink button background color */
+  color: black; /* black text on buttons */
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: pink; /* Lighter pink on hover */
+}
