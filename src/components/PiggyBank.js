@@ -34,12 +34,68 @@ function PiggyBank() {
   // display piggy bank image and deposit/withdraw buttons
   // show current balance, savings goal, and percentage to reach savings goal
   return (
-    <div className="body">
+    <div className="body" style={{ padding: "10px" }}>
       <h1>Piggy Pay</h1>
-      <div>
-        <p>Balance: ${balance.toFixed(2)}</p>
-        <p>Savings Goal: ${savingsGoal.toFixed(2)}</p>
-        <p>Percentage to Savings Goal: {percentageToGoal.toFixed(0)}%</p>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "auto auto",
+          columnGap: "35px",
+          justifyContent: "center",
+        }}
+      >
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          Balance:
+        </p>
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          ${balance.toFixed(2)}
+        </p>
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          Savings Goal:
+        </p>
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          ${savingsGoal.toFixed(2)}
+        </p>
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          Percentage to Savings Goal:
+        </p>
+        <p style={{ display: "flex", justifyContent: "flex-start" }}>
+          {percentageToGoal.toFixed(0)}%
+        </p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "flex-row",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ paddingRight: "15px" }}>
+          <input
+            type="number"
+            placeholder="Enter deposit amount"
+            value={isDepositing}
+            onChange={(e) => setIsDepositing(e.target.value)}
+          />
+          <br></br>
+          <button onClick={() => deposit(parseFloat(isDepositing))}>
+            Deposit
+          </button>
+        </div>
+        <br></br>
+
+        <div>
+          <input
+            type="number"
+            placeholder="Enter withdrawal amount"
+            value={isWithdrawing}
+            onChange={(e) => setIsWithdrawing(e.target.value)}
+          />
+          <br></br>
+          <button onClick={() => withdraw(parseFloat(isWithdrawing))}>
+            Withdraw
+          </button>
+        </div>
       </div>
       <div className="coin-container">
         {isCoinInside ? (
@@ -49,33 +105,13 @@ function PiggyBank() {
         )}
       </div>
       <div className="piggy-container">
-        <img src="pig.png" alt="Pig" className="piggy"></img>
-      </div>
-      <div>
-        <input
-          type="number"
-          placeholder="Enter deposit amount"
-          value={isDepositing}
-          onChange={(e) => setIsDepositing(e.target.value)}
-        />
-        <br></br>
-        <button onClick={() => deposit(parseFloat(isDepositing))}>
-          Deposit
-        </button>
-      </div>
-      <br></br>
-
-      <div>
-        <input
-          type="number"
-          placeholder="Enter withdrawal amount"
-          value={isWithdrawing}
-          onChange={(e) => setIsWithdrawing(e.target.value)}
-        />
-        <br></br>
-        <button onClick={() => withdraw(parseFloat(isWithdrawing))}>
-          Withdraw
-        </button>
+        <img
+          src="pig.png"
+          alt="Pig"
+          className="piggy"
+          height={"50px"}
+          width={"50px"}
+        ></img>
       </div>
     </div>
   );
