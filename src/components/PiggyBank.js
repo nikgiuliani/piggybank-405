@@ -7,6 +7,7 @@ function PiggyBank() {
   const [isCoinInside, setIsCoinInside] = useState(true);
   const savingsGoal = 100;
   const percentageToGoal = (balance / savingsGoal) * 100;
+  const isMobile = window.innerWidth <= 768;
 
   // deposit $
   const deposit = (amount) => {
@@ -65,7 +66,7 @@ function PiggyBank() {
       </div>
       <div
         style={{
-          display: "flex",
+          display: !isMobile ? "flex" : "none",
           flexDirection: "flex-row",
           justifyContent: "center",
         }}
@@ -83,7 +84,6 @@ function PiggyBank() {
           </button>
         </div>
         <br></br>
-
         <div>
           <input
             type="number"
@@ -112,6 +112,39 @@ function PiggyBank() {
           height={"50px"}
           width={"50px"}
         ></img>
+      </div>
+      <div
+        style={{
+          display: isMobile ? "flex" : "none",
+          flexDirection: "flex-row",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ paddingRight: "15px" }}>
+          <input
+            type="number"
+            placeholder="Enter deposit amount"
+            value={isDepositing}
+            onChange={(e) => setIsDepositing(e.target.value)}
+          />
+          <br></br>
+          <button onClick={() => deposit(parseFloat(isDepositing))}>
+            Deposit
+          </button>
+        </div>
+        <br></br>
+        <div>
+          <input
+            type="number"
+            placeholder="Enter withdrawal amount"
+            value={isWithdrawing}
+            onChange={(e) => setIsWithdrawing(e.target.value)}
+          />
+          <br></br>
+          <button onClick={() => withdraw(parseFloat(isWithdrawing))}>
+            Withdraw
+          </button>
+        </div>
       </div>
     </div>
   );
