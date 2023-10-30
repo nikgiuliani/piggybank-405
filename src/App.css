@@ -44,8 +44,8 @@ h1 {
 }
 
 .coin {
-  width: 100px;
-  height: 100px;
+  width: min(100px, 18vw);
+  height: min(100px, 18vw);
   background-color: #ffd700; /* Gold color for coins */
   border-radius: 50%;
   display: flex;
@@ -63,7 +63,7 @@ h1 {
   display: flex;
   justify-content: center; /* Center coins horizontally */
   align-items: center; /* Center coins vertically */
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 .deposit {
