@@ -11,24 +11,28 @@ function PiggyBank() {
 
   // deposit $
   const deposit = (amount) => {
-    setIsDepositing(true);
-    setIsCoinInside(true); // Coin is inside when depositing
-    setTimeout(() => {
-      setBalance(balance + amount);
-      setIsDepositing(false);
-    }, 500);
+    if (amount) {
+      setIsDepositing(true);
+      setIsCoinInside(true); // Coin is inside when depositing
+      setTimeout(() => {
+        setBalance(balance + amount);
+        setIsDepositing(false);
+      }, 500);
+    }
   };
 
   const withdraw = (amount) => {
-    if (balance >= amount) {
-      setIsWithdrawing(true);
-      setIsCoinInside(false); // Coin is outside when withdrawing
-      setTimeout(() => {
-        setBalance(balance - amount);
-        setIsWithdrawing(false);
-      }, 500);
-    } else {
-      alert("Not enough money in the piggy bank!");
+    if (amount) {
+      if (balance >= amount) {
+        setIsWithdrawing(true);
+        setIsCoinInside(false); // Coin is outside when withdrawing
+        setTimeout(() => {
+          setBalance(balance - amount);
+          setIsWithdrawing(false);
+        }, 500);
+      } else {
+        alert("Not enough money in the piggy bank!");
+      }
     }
   };
 
