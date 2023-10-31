@@ -9,8 +9,8 @@ body {
   margin-top: -10px;
 }
 
-button {
-  background-color: palevioletred; /* pink button background color */
+button.pink {
+  background-color: #f7999b; /* pink button background color */
   color: black; /* black text on buttons */
   font-size: 18px;
   border: none;
@@ -24,8 +24,46 @@ button {
   font-size: min(18px, 5vw);
 }
 
-button:hover {
-  background-color: pink; /* Lighter pink on hover */
+button.pink:hover {
+  background-color: #fbc8c9; /* Lighter pink on hover */
+}
+
+button.teal {
+  background-color: #b4dbcb; /* pink button background color */
+  color: black; /* black text on buttons */
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: min(18px, 5vw);
+}
+
+button.teal:hover {
+  background-color: #185683; /* Lighter pink on hover */
+}
+
+button.purple {
+  background-color: #aa96ac; /* pink button background color */
+  color: black; /* black text on buttons */
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: min(18px, 5vw);
+}
+
+button.purple:hover {
+  background-color: #dabab9; /* Lighter pink on hover */
 }
 
 .piggy {
@@ -33,6 +71,28 @@ button:hover {
   height: min(400px, 64vw);
 }
 .piggy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -170px;
+}
+
+.unicorn {
+  width: min(400px, 64vw);
+  height: min(400px, 64vw);
+}
+.unicorn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -170px;
+}
+
+.dinosaur {
+  width: min(400px, 64vw);
+  height: min(400px, 64vw);
+}
+.dinosaur-container {
   display: flex;
   justify-content: center;
   align-items: center;

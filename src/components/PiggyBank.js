@@ -9,6 +9,20 @@ function PiggyBank() {
   const percentageToGoal = (balance / savingsGoal) * 100;
   const isMobile = window.innerWidth <= 768;
 
+  // define default color scheme and animal
+  const [selectedColor, setSelectedColor] = useState("pink");
+  const [selectedAnimal, setSelectedAnimal] = useState("pig");
+
+  // Function to handle color and animal selection
+  const handleColorAnimalChange = (event) => {
+    const value = event.target.value;
+    if (value.includes(" - ")) {
+      const [color, animal] = value.split(" - ");
+      setSelectedColor(color);
+      setSelectedAnimal(animal);
+    }
+  };
+
   // deposit $
   const deposit = (amount) => {
     if (amount) {
@@ -41,6 +55,12 @@ function PiggyBank() {
   return (
     <div className="body" style={{ padding: "10px" }}>
       <h1>Piggy Pay</h1>
+      {/* Dropdown to select color and animal */}
+      <select onChange={handleColorAnimalChange}>
+        <option value="pink - pig">Pink - Pig</option>
+        <option value="purple - unicorn">Purple - Unicorn</option>
+        <option value="teal - dinosaur">Teal - Dinosaur</option>
+      </select>
       <div
         style={{
           display: "grid",
@@ -83,7 +103,16 @@ function PiggyBank() {
             onChange={(e) => setIsDepositing(e.target.value)}
           />
           <br></br>
-          <button onClick={() => deposit(parseFloat(isDepositing))}>
+          <button
+            onClick={() => deposit(parseFloat(isDepositing))}
+            className={
+              selectedColor === "pink"
+                ? "pink"
+                : selectedColor === "purple"
+                ? "purple"
+                : "teal"
+            }
+          >
             Deposit
           </button>
         </div>
@@ -96,7 +125,16 @@ function PiggyBank() {
             onChange={(e) => setIsWithdrawing(e.target.value)}
           />
           <br></br>
-          <button onClick={() => withdraw(parseFloat(isWithdrawing))}>
+          <button
+            onClick={() => deposit(parseFloat(isWithdrawing))}
+            className={
+              selectedColor === "pink"
+                ? "pink"
+                : selectedColor === "purple"
+                ? "purple"
+                : "teal"
+            }
+          >
             Withdraw
           </button>
         </div>
@@ -110,8 +148,8 @@ function PiggyBank() {
       </div>
       <div className="piggy-container">
         <img
-          src="pig.png"
-          alt="Pig"
+          src={`${selectedAnimal}.png`} // Change the image based on selectedAnimal
+          alt={selectedAnimal}
           className="piggy"
           height={"50px"}
           width={"50px"}
