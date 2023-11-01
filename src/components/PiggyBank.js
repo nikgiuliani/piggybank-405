@@ -57,39 +57,57 @@ function PiggyBank() {
   // show current balance, savings goal, and percentage to reach savings goal
   return (
     <div className="body" style={{ padding: "10px" }}>
-      <h1>Piggy Pay</h1>
+      <h1 style={{ marginBottom: "15px" }}>Piggy Pay</h1>
       {/* Dropdown to select color and animal */}
       <select onChange={handleColorAnimalChange}>
         <option value="pink - pig">Pink - Pig</option>
         <option value="purple - unicorn">Purple - Unicorn</option>
         <option value="teal - dinosaur">Teal - Dinosaur</option>
       </select>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "auto auto",
-          columnGap: "35px",
-          justifyContent: "center",
-        }}
-      >
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          Balance:
-        </p>
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          ${balance.toFixed(2)}
-        </p>
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          Savings Goal:
-        </p>
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          ${savingsGoal.toFixed(2)}
-        </p>
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          Percentage to Savings Goal:
-        </p>
-        <p style={{ display: "flex", justifyContent: "flex-start" }}>
-          {percentageToGoal.toFixed(0)}%
-        </p>
+      <div style={!isMobile ? { paddingBottom: "10px" } : {}}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto auto",
+            columnGap: "35px",
+            justifyContent: "center",
+            paddingBottom: "-10px",
+          }}
+        >
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            Balance:
+          </p>
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            ${balance.toFixed(2)}
+          </p>
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            Savings Goal:
+          </p>
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            ${savingsGoal.toFixed(2)}
+          </p>
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            Percentage to Savings Goal:
+          </p>
+          <p style={{ display: "flex", justifyContent: "flex-start" }}>
+            {percentageToGoal.toFixed(0)}%
+          </p>
+        </div>
+        <progress
+          style={{
+            width: "min(330px, 90vw)",
+            height: "15px",
+          }}
+          className={
+            selectedColor === "pink"
+              ? "progress-pink"
+              : selectedColor === "purple"
+              ? "progress-purple"
+              : "progress-teal"
+          }
+          value={percentageToGoal}
+          max={savingsGoal}
+        ></progress>
       </div>
       <div
         style={{

@@ -70,8 +70,8 @@ button.purple:hover {
 }
 
 .piggy {
-  width: min(400px, 64vw);
-  height: min(400px, 64vw);
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
 }
 .piggy-container {
   display: flex;
@@ -81,8 +81,8 @@ button.purple:hover {
 }
 
 .unicorn {
-  width: min(400px, 64vw);
-  height: min(400px, 64vw);
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
 }
 .unicorn-container {
   display: flex;
@@ -92,8 +92,8 @@ button.purple:hover {
 }
 
 .dinosaur {
-  width: min(400px, 64vw);
-  height: min(400px, 64vw);
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
 }
 .dinosaur-container {
   display: flex;
@@ -137,6 +137,51 @@ h1 {
 .withdraw {
   background-color: #f18d92; /* Red color when withdrawing */
   animation: slide-out 1s forwards;
+}
+
+.progress-pink {
+  appearance: none;
+  -webkit-appearance: none;
+  &[value]::-webkit-progress-bar {
+    background-color: lightgray;
+    border-radius: 6px;
+  }
+
+  &[value]::-webkit-progress-value {
+    background-color: pink;
+    border-radius: 6px;
+    transition: width 1s ease;
+  }
+}
+
+.progress-teal {
+  appearance: none;
+  -webkit-appearance: none;
+  &[value]::-webkit-progress-bar {
+    background-color: lightgray;
+    border-radius: 6px;
+  }
+
+  &[value]::-webkit-progress-value {
+    background-color: teal;
+    border-radius: 6px;
+    transition: width 1s ease;
+  }
+}
+
+.progress-purple {
+  appearance: none;
+  -webkit-appearance: none;
+  &[value]::-webkit-progress-bar {
+    background-color: lightgray;
+    border-radius: 6px;
+  }
+
+  &[value]::-webkit-progress-value {
+    background-color: purple;
+    border-radius: 6px;
+    transition: width 1s ease;
+  }
 }
 
 @keyframes slide-in {
