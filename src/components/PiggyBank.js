@@ -119,11 +119,43 @@ function PiggyBank() {
                 justifyContent: "center",
               }}
             >
-              <button onClick={() => setAmount(1)}>$1</button>
-              <button style={{ margin: 0 }} onClick={() => setAmount(5)}>
+              <button
+                onClick={() => setAmount(1)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
+                $1
+              </button>
+              <button
+                style={{ margin: 0 }}
+                onClick={() => setAmount(5)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
                 $5
               </button>
-              <button onClick={() => setAmount(10)}>$10</button>
+              <button
+                onClick={() => setAmount(10)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
+                $10
+              </button>
             </div>
           </div>
           <br></br>
@@ -207,11 +239,43 @@ function PiggyBank() {
                 justifyContent: "center",
               }}
             >
-              <button onClick={() => setAmount(1)}>$1</button>
-              <button style={{ margin: 0 }} onClick={() => setAmount(5)}>
+              <button
+                onClick={() => setAmount(1)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
+                $1
+              </button>
+              <button
+                style={{ margin: 0 }}
+                onClick={() => setAmount(5)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
                 $5
               </button>
-              <button onClick={() => setAmount(10)}>$10</button>
+              <button
+                onClick={() => setAmount(10)}
+                className={
+                  selectedColor === "pink"
+                    ? "pink"
+                    : selectedColor === "purple"
+                    ? "purple"
+                    : "teal"
+                }
+              >
+                $10
+              </button>
             </div>
           </div>
           <br></br>
@@ -222,8 +286,28 @@ function PiggyBank() {
               justifyContent: "center",
             }}
           >
-            <button onClick={() => deposit(parseFloat(amount))}>Deposit</button>
-            <button onClick={() => withdraw(parseFloat(amount))}>
+            <button
+              onClick={() => deposit(parseFloat(amount))}
+              className={
+                selectedColor === "pink"
+                  ? "pink"
+                  : selectedColor === "purple"
+                  ? "purple"
+                  : "teal"
+              }
+            >
+              Deposit
+            </button>
+            <button
+              onClick={() => withdraw(parseFloat(amount))}
+              className={
+                selectedColor === "pink"
+                  ? "pink"
+                  : selectedColor === "purple"
+                  ? "purple"
+                  : "teal"
+              }
+            >
               Withdraw
             </button>
           </div>

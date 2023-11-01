@@ -34,8 +34,9 @@ button.teal {
   color: black; /* black text on buttons */
   font-size: 18px;
   border: none;
-  padding: 10px 20px;
-  margin: 10px;
+  border-radius: 5%;
+  padding: 5px 10px;
+  margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -53,8 +54,9 @@ button.purple {
   color: black; /* black text on buttons */
   font-size: 18px;
   border: none;
-  padding: 10px 20px;
-  margin: 10px;
+  border-radius: 5%;
+  padding: 5px 10px;
+  margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
