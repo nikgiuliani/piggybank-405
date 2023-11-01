@@ -5,6 +5,7 @@ function PiggyBank() {
   const [isDepositing, setIsDepositing] = useState(false);
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [isCoinInside, setIsCoinInside] = useState(true);
+  const [amount, setAmount] = useState();
   const savingsGoal = 100;
   const percentageToGoal = (balance / savingsGoal) * 100;
   const isMobile = window.innerWidth <= 768;
@@ -25,21 +26,23 @@ function PiggyBank() {
 
   // deposit $
   const deposit = (amount) => {
-    if (amount) {
+    if (amount && amount > 0) {
       setIsDepositing(true);
       setIsCoinInside(true); // Coin is inside when depositing
+      setAmount("");
       setTimeout(() => {
         setBalance(balance + amount);
         setIsDepositing(false);
       }, 500);
-    }
+    } else if (amount < 0) alert("No negative numbers allowed!");
   };
 
   const withdraw = (amount) => {
-    if (amount) {
+    if (amount && amount > 0) {
       if (balance >= amount) {
         setIsWithdrawing(true);
         setIsCoinInside(false); // Coin is outside when withdrawing
+        setAmount("");
         setTimeout(() => {
           setBalance(balance - amount);
           setIsWithdrawing(false);
@@ -47,7 +50,7 @@ function PiggyBank() {
       } else {
         alert("Not enough money in the piggy bank!");
       }
-    }
+    } else if (amount < 0) alert("No negative numbers allowed!");
   };
 
   // display piggy bank image and deposit/withdraw buttons
@@ -95,48 +98,68 @@ function PiggyBank() {
           justifyContent: "center",
         }}
       >
-        <div style={{ paddingRight: "15px" }}>
-          <input
-            type="number"
-            placeholder="Enter deposit amount"
-            value={isDepositing}
-            onChange={(e) => setIsDepositing(e.target.value)}
-          />
-          <br></br>
-          <button
-            onClick={() => deposit(parseFloat(isDepositing))}
-            className={
-              selectedColor === "pink"
-                ? "pink"
-                : selectedColor === "purple"
-                ? "purple"
-                : "teal"
-            }
-          >
-            Deposit
-          </button>
-        </div>
-        <br></br>
         <div>
-          <input
-            type="number"
-            placeholder="Enter withdrawal amount"
-            value={isWithdrawing}
-            onChange={(e) => setIsWithdrawing(e.target.value)}
-          />
-          <br></br>
-          <button
-            onClick={() => deposit(parseFloat(isWithdrawing))}
-            className={
-              selectedColor === "pink"
-                ? "pink"
-                : selectedColor === "purple"
-                ? "purple"
-                : "teal"
-            }
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "flex-row",
+              justifyContent: "center",
+            }}
           >
-            Withdraw
-          </button>
+            <input
+              type="number"
+              placeholder="Enter deposit amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "flex-row",
+                justifyContent: "center",
+              }}
+            >
+              <button onClick={() => setAmount(1)}>$1</button>
+              <button style={{ margin: 0 }} onClick={() => setAmount(5)}>
+                $5
+              </button>
+              <button onClick={() => setAmount(10)}>$10</button>
+            </div>
+          </div>
+          <br></br>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "flex-row",
+              justifyContent: "center",
+            }}
+          >
+            <button
+              onClick={() => deposit(parseFloat(amount))}
+              className={
+                selectedColor === "pink"
+                  ? "pink"
+                  : selectedColor === "purple"
+                  ? "purple"
+                  : "teal"
+              }
+            >
+              Deposit
+            </button>
+            <button
+              onClick={() => withdraw(parseFloat(isWithdrawing))}
+              className={
+                selectedColor === "pink"
+                  ? "pink"
+                  : selectedColor === "purple"
+                  ? "purple"
+                  : "teal"
+              }
+            >
+              Withdraw
+            </button>
+          </div>
         </div>
       </div>
       <div className="coin-container">
@@ -160,32 +183,50 @@ function PiggyBank() {
           display: isMobile ? "flex" : "none",
           flexDirection: "flex-row",
           justifyContent: "center",
+          paddingTop: "10px",
         }}
       >
-        <div style={{ paddingRight: "15px" }}>
-          <input
-            type="number"
-            placeholder="Enter deposit amount"
-            value={isDepositing}
-            onChange={(e) => setIsDepositing(e.target.value)}
-          />
-          <br></br>
-          <button onClick={() => deposit(parseFloat(isDepositing))}>
-            Deposit
-          </button>
-        </div>
-        <br></br>
         <div>
-          <input
-            type="number"
-            placeholder="Enter withdrawal amount"
-            value={isWithdrawing}
-            onChange={(e) => setIsWithdrawing(e.target.value)}
-          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "flex-row",
+              justifyContent: "center",
+            }}
+          >
+            <input
+              type="number"
+              placeholder="Enter deposit amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "flex-row",
+                justifyContent: "center",
+              }}
+            >
+              <button onClick={() => setAmount(1)}>$1</button>
+              <button style={{ margin: 0 }} onClick={() => setAmount(5)}>
+                $5
+              </button>
+              <button onClick={() => setAmount(10)}>$10</button>
+            </div>
+          </div>
           <br></br>
-          <button onClick={() => withdraw(parseFloat(isWithdrawing))}>
-            Withdraw
-          </button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "flex-row",
+              justifyContent: "center",
+            }}
+          >
+            <button onClick={() => deposit(parseFloat(amount))}>Deposit</button>
+            <button onClick={() => withdraw(parseFloat(amount))}>
+              Withdraw
+            </button>
+          </div>
         </div>
       </div>
     </div>
