@@ -198,7 +198,7 @@ function PiggyBank() {
               Deposit
             </button>
             <button
-              onClick={() => withdraw(parseFloat(isWithdrawing))}
+              onClick={() => withdraw(parseFloat(amount))}
               className={
                 selectedColor === "pink"
                   ? "pink"
